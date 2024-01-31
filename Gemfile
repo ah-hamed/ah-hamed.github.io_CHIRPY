@@ -2,7 +2,10 @@
 
 source "https://rubygems.org"
 
-gem "jekyll-theme-chirpy", "~> 6.4", ">= 6.4.2"
+# gem "jekyll-theme-chirpy", "~> 6.4", ">= 6.4.2"
+## I commented out the above line because I made changes 
+## to the theme files and don't want things to break  
+gem "jekyll-theme-chirpy", "6.4.2"
 
 group :test do
   gem "html-proofer", "~> 4.4"

@@ -1,0 +1,513 @@
+/* 
+    This file will modify the originally generated CSS to
+    fit the RTL direction.
+*/
+$font-family-base: 'IBM Plex Sans Arabic', 'Source Sans Pro', 'Microsoft Yahei', sans-serif !default;
+$font-family-heading: 'IBM Plex Sans Arabic', Lato, 'Microsoft Yahei', sans-serif !default;
+
+@import 'colors/typography-light';
+@import 'colors/typography-dark';
+@import 'addon/variables';
+@import 'variables-hook';
+@import 'addon/module';
+@import 'addon/syntax';
+@import 'addon/commons';
+@import 'layout/home';
+@import 'layout/post';
+@import 'layout/tags';
+@import 'layout/archives';
+@import 'layout/categories';
+@import 'layout/category-tag';
+
+#archives .year {
+    font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif;
+}
+
+html[dir="rtl"] {
+
+    /* 'addon/commons.scss' */
+
+    blockquote {
+        border-left: unset;
+        padding-left: unset;
+
+        border-right: 5px solid var(--blockquote-border-color);
+        padding-right: 1rem;
+
+        &[class^='prompt-'] {
+            border-right: 0;
+            padding: 1rem 3rem 1rem 1rem;
+        
+            &::before {
+              left: unset;
+              right: 0.25rem;
+            }
+        }
+    }
+
+    .access > section {
+        padding-left: unset;
+        border-left: unset;
+        padding-right: 1rem;
+        border-right: 1px solid var(--main-border-color);
+    }
+
+    #panel-wrapper .post-tag {
+        margin: 0 0 0.5rem 0.35rem;
+    }
+
+    .footnotes > ol {
+        padding-left: unset;
+        padding-right: 2rem;
+      
+        > li > p {
+            margin-left: unset;
+            margin-right: 0.25em;
+        }
+    }
+
+    .reversefootnote {
+        @at-root a#{&} {
+            margin-left: unset;
+            margin-right: 0.25em;
+        }
+    }
+
+    .content ul.task-list li > i {
+        margin-left: unset;
+        margin-right: -1.25rem;
+    }
+
+    .content {       
+        ol,
+        ul {
+          &:not([class]),
+          &.task-list {
+      
+            li {
+              padding-left: unset;
+              padding-right: 0.25rem;
+            }
+      
+          }
+        }
+      
+        ul.task-list {
+      
+          li {
+            padding-right: 0;
+
+            > i {
+                margin-left: unset;
+                margin-right: -1.25rem;
+            }
+          }
+      
+          input[type='checkbox'] {
+            margin: 0 -1.3rem 0.2rem 0.5rem;
+          }
+        }
+      
+        dl > dd {
+            margin-left: unset;
+            margin-right: 1rem;
+        }
+    }
+
+    .post-tag { 
+        &:not(:last-child) {
+            margin-right: unset;
+            margin-left: 0.2rem;
+        }
+    }
+
+    .shimmer {
+        @-webkit-keyframes shimmer {
+          0% {
+            transform: translateX(100%);
+          }
+      
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+      
+        @keyframes shimmer {
+          0% {
+            transform: translateX(100%);
+          }
+      
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+    }
+
+    .tooltip-inner {
+        text-align: right;
+    }
+
+    .left {
+        float: right;
+        margin: 0.75rem 0 1rem 1rem;
+    }
+      
+    .right {
+        float: left;
+        margin: 0.75rem 1rem 1rem 0;
+    }
+
+    figure .mfp-title {
+        padding-left: 0;
+    }
+
+    #sidebar {
+        left: unset;
+        right: 0;
+
+        .profile-wrapper {
+            padding-left: 1.5rem;
+            padding-right: 2.25rem;
+        }
+
+        ul {
+            padding-right: 0;
+
+            li.nav-item a.nav-link i {
+                margin-right: unset;
+                margin-left: 1.5rem;
+            }
+        }
+
+        .sidebar-bottom {
+            padding-left: 1rem;
+            padding-right: 2rem;
+
+            a:not(:last-child) {
+                margin-right: unset;
+                margin-left: $sb-btn-gap;
+            }
+        }
+    }
+
+    #topbar #breadcrumb {
+        padding-left: unset;
+        padding-right: 0.5rem;
+    }
+
+    #search-hints .post-tag {
+        margin: 0 0 1rem 1.25rem;
+        &::before {
+            padding-right: unset;
+            padding-left: 0.2rem;
+        }
+    }
+
+    #search-results > article i {
+        margin-right: unset;
+        margin-left: 0.15rem;
+    }
+
+    #back-to-top {
+        right: unset;
+        left: 1rem;
+    }
+
+    #notification {
+        &.toast {
+          &.show {
+            left: unset;
+            right: 50%;
+            transform: translateX(50%);
+          }
+        }
+      }
+
+    #topbar-title {
+        font-family: inherit; // Note: This override is not related to RTL
+    }
+
+    #main-wrapper {
+        @media all and (min-width: 850px) {
+            margin-left: unset;
+            margin-right: $sidebar-width;
+        }
+
+        @media all and (min-width: 1650px) {
+            margin-left: unset;
+            margin-right: $sidebar-width-large; 
+        }
+    }
+
+    @media all and (max-width: 849px) {
+        [#{$sidebar-display}] {
+            #sidebar {
+                transform: translateX(0);
+            }
+
+            #main-wrapper {
+                transform: translateX(-$sidebar-width);
+            }
+        }
+
+        #sidebar {        
+            transform: translateX($sidebar-width);
+            -webkit-transform: translateX($sidebar-width);
+        }
+    }
+
+    @media all and (min-width: 1200px) {
+        search {
+            margin-right: unset;
+            margin-left: 4rem;
+        }
+      
+        #search-results > article {
+      
+          &:nth-child(odd) {
+            margin-right: unset;
+            margin-left: 1.5rem;
+          }
+      
+          &:nth-child(even) {
+            margin-left: unset;
+            margin-right: 1.5rem;
+          }
+      
+          &:last-child:nth-child(odd) {
+            right: unset;
+            left: 24.3%;
+          }
+        }
+    }
+
+    @media all and (min-width: 1400px) {
+        #back-to-top {
+            right: unset;
+            left: calc((100vw - $sidebar-width - 1140px) / 2 + 3rem);
+        }
+    }
+
+    @media all and (min-width: 1650px) {      
+        #main-wrapper {
+            margin-left: unset;
+            margin-right: $sidebar-width-large;
+        }
+      
+        #topbar-wrapper {
+            left: unset;
+            right: $sidebar-width-large;
+        }
+      
+        search {
+            margin-right: unset;
+            margin-left: calc(
+            $main-content-max-width / 4 - $search-max-width - 0.75rem
+          );
+        }
+      
+        main.col-12,
+        #tail-wrapper {
+            padding-right: unset;
+            padding-left: 4.5rem !important;
+        }
+      
+        #back-to-top {
+            right: unset;
+            left: calc(
+                (100vw - $sidebar-width-large - $main-content-max-width) / 2 + 2rem
+            );
+        }
+      
+        #sidebar {      
+          .profile-wrapper {
+            padding-left: unset;
+            padding-right: 3.5rem;
+          }
+      
+          ul {
+            li.nav-item {
+              @include pl-pr(2.75rem);
+            }
+          }
+      
+          .sidebar-bottom {
+            padding-left: unset;
+            padding-right: 2.75rem;      
+
+            a:not(:last-child) {
+                margin-right: unset;
+                margin-left: $sb-btn-gap-lg;
+            }
+          }
+        }
+    }
+
+    /* 'addon/syntax.scss' */
+    .highlighter-rouge {
+        direction: ltr;
+    }
+
+    /* 'layout/archives.scss' */
+    #archives {
+        // selectors that extend %timeline
+        .year::before, .year:first-child::before, ul li::before {
+            float: right;
+        }
+
+        .year {
+            left: unset;
+            margin-left: unset;
+            
+            right: 2px;
+            margin-right: -4px;
+
+            &::before {
+                left: unset;
+                right: 102px;
+            }
+
+            &::after {
+                left: unset;
+                right: 44.5px;
+            }
+        }
+
+        ul li::before{
+            left: unset;
+            right: 100px;
+        }
+
+        .date {
+            right: unset;
+            left: 0.5rem;
+        }
+
+        a {
+            margin-left: unset;
+            margin-right: 3.5rem;
+            
+            &::before {
+                float: right;
+                left: unset;
+                right: 94px;
+            }
+        }
+    }
+
+    /* 'layout/home.scss' */
+
+    #post-list .card {
+        @media (min-width: 768px) {
+            .preview-img, .preview-img img {
+                border-radius: $base-radius 0 0 $base-radius;
+            }
+        }
+
+        .card-body .post-meta i:not(:first-child) {
+            margin-left: unset;
+            margin-right: 1.5rem;
+        }
+    }
+
+    @media all and (min-width: 831px) {
+        .pagination {
+          .page-item {
+            &:not(:last-child) {
+              margin-right: unset;
+              margin-left: 0.7rem;
+            }
+          }
+        }
+    }
+
+    /* 'layout/post.scss' */
+
+    .post-tail-wrapper .share-wrapper .share-icons > * {
+        margin-left: unset;
+        margin-right: 0.5rem;
+    }
+
+    .post-navigation {
+        .btn {
+            &:first-child {
+                border-radius: 0 $base-radius $base-radius 0;
+                left: unset;
+                right: 0.5px;
+            }
+          
+              &:last-child {
+                border-radius: $base-radius 0 0 $base-radius;
+                right: unset;
+                left: 0.5px;
+            }
+        }
+    }
+
+    #toc-wrapper {
+        border-left: unset;
+        border-right: 1px solid rgba(158, 158, 158, 0.17);
+
+        ul {
+            padding-right: 0;
+
+            li {
+                a {
+                  padding: 0.2rem 1.25rem 0.2rem 0;
+                }
+            }
+
+            .is-active-link::before {
+                left: unset;
+                right: -1px;
+            }
+
+            ul {
+                padding-left: unset;
+                padding-right: 0.75rem;
+            }
+        }
+    }
+
+    /* 'layout/categories.scss' */
+    .categories {
+        .card-header span {
+            display: inline-block;
+        }
+
+        .list-group-item {
+            padding-left: unset;
+            padding-right: 2rem;
+
+            span {
+                display: inline-block;
+            }
+        }
+    }
+
+    .rotate {
+        transform: rotate(90deg);
+    }
+
+    /* 'layout/category-tag.scss' */
+    #page-category,
+    #page-tag {
+        ul > li { 
+            &::before {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+
+    /* 'layout/tags.scss' */
+    .tag {
+        margin-right: unset;
+        margin-left: 0.8rem;
+
+        span {
+            display: inline-block;
+            margin-right: 0.6em;
+            margin-left: 0.6em;
+        }
+    }
+}
