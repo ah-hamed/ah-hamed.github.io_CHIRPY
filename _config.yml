@@ -189,6 +189,7 @@ exclude:
   - LICENSE
   - rollup.config.js
   - package*.json
+  - Chirpy_Starter_README.md
 
 jekyll-archives:
   enabled: [categories, tags]
