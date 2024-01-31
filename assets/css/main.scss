@@ -23,6 +23,10 @@ $font-family-heading: 'IBM Plex Sans Arabic', Lato, 'Microsoft Yahei', sans-seri
     font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif;
 }
 
+#topbar-title {
+    font-family: inherit; // Note: This override is not related to RTL
+}
+
 html[dir="rtl"] {
 
     /* 'addon/commons.scss' */
@@ -222,10 +226,6 @@ html[dir="rtl"] {
           }
         }
       }
-
-    #topbar-title {
-        font-family: inherit; // Note: This override is not related to RTL
-    }
 
     #main-wrapper {
         @media all and (min-width: 850px) {
